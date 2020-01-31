@@ -19,6 +19,8 @@ scripts=(
   rbenv
   ssh
   node
+  git_aliases
+  devops
 )
 
 mydir=${0:a:h}

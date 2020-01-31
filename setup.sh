@@ -18,8 +18,10 @@ echo $mydir
 function setup_ohmyzsh {
   destination="${1}"
   if [[ ! -d "${destination}/.oh-my-zsh" ]]; then
+	echo "Cloning oh-my-zsh from robbyrussel"
   	(cd "${destination}" && git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh)
   else
+	echo "oh-my-zsh already exists.  Updating."
   	(cd "${destination}/.oh-my-zsh" && git pull origin master)
   fi
 }
@@ -41,9 +43,13 @@ function setup_dotfiles ()
     fi
 
     ln -s "${fullpath_src}" "${fullpath_dest}"
+	echo ".${dotfile} linked."
 
   done
 }
 
+echo "\nSetting up oh-my-zsh\n"
 setup_ohmyzsh ${mydir}
+
+echo "\nSetting up dotfiles\n"
 setup_dotfiles ${mydir}/dotfiles ${mydir}/..

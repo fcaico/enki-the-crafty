@@ -12,7 +12,6 @@ mydir=`dirname $mydir`
 export PATH=$PATH:${mydir}/../bin
 export SHELL=/usr/local/bin/zsh
 
-alias rm='trash'
 alias path='echo -e ${PATH//:/\\n}'
 
 update() {
